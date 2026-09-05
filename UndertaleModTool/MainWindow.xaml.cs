@@ -781,7 +781,8 @@ namespace UndertaleModTool
             {
                 DefaultExt = "win",
                 Filter = DataFileFilter,
-                FileName = FilePath
+                FileName = FilePath,
+                AddExtension = false
             };
             if (dlg.ShowDialog(this) == true)
             {
