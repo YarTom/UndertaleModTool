@@ -830,6 +830,17 @@ public partial class UndertaleCodeView : UserControl
             return base.CreateTextRun(startVisualColumn, context);
         }
 
+        protected override void OnQueryCursor(PointerEventArgs e)
+        {
+            if (e.KeyModifiers.HasFlag(KeyModifiers.Control))
+            {
+                if (e.Source is InputElement element)
+                    element.Cursor = new Cursor(StandardCursorType.Hand);
+
+                e.Handled = true;
+            }
+        }
+
         protected override void OnPointerPressed(PointerPressedEventArgs e)
         {
             MouseButton button = e.GetCurrentPoint(null).Properties.PointerUpdateKind.GetMouseButton();
